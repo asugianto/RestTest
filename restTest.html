@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="style/restTest.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bench Rest Test</title>
+    </head>
+
+    <body ng-app="RestTestApp" ng-controller="dataController" ng-init="getTransactionList()" ng-cloak>
+
+        <div class="restTestHeader">
+            <div class="top"></div>
+            <div class="dataTitle">Bench Test</div>
+        </div>
+
+        <div class="restTestBody">
+            <div class="restTestCategory">
+                Filter Categories
+                <select ng-model="selectedCategory" ng-change="calculateTotalBalance()">
+                    <option value="">All</option>
+                    <option ng-repeat="category in expenseCategories">{{category}}</option>
+                </select>
+            </div>
+
+            <div class="restTestTable">
+                <div class="row header">
+                    <div class="col-md-2">Date</div>
+                    <div class="col-md-4">Company</div>
+                    <div class="col-md-4">Ledger</div>
+                    <div class="col-md-1 text-right"></div>
+                    <div class="col-md-1 text-right" ng-show="selectedCategory === ''">Running Balance</div>
+                </div>
+                <div class="row content" ng-repeat="transaction in data.transactions | filter:{Ledger:selectedCategory||undefined} | orderBy:'-'">
+                    <div class="col-md-2">{{transaction.Date | date:'mediumDate'}}</div>
+                    <div class="col-md-4 bold">{{transaction.Company}}</div>
+                    <div class="col-md-4">{{transaction.Ledger}}</div>
+                    <div class="col-md-1 text-right bold">{{transaction.Amount | currency}}</div>
+                    <div class="col-md-1 text-right bold" ng-show="selectedCategory === ''">{{transaction.runningBalance | currency}}</div>
+                </div>
+                <div class="row footer">
+                    <div class="col-md-6">Total Balance on Page {{currentPage}}</div>
+                    <div class="col-md-9 text-right bold">{{totalBalance | currency}}</div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="restTestFooter">
+            <!--Showing {{data.transactions.length}} of {{data.totalCount}} transactions-->
+            <ul class="pagination">
+                <li ng-show="currentPage > 1"
+                    ng-click="showPrevPage()">
+                    <a>&laquo; Prev</a>
+                </li>
+
+                <li ng-repeat="i in getNumber(totalPages) track by $index"
+                    class="{{currentPage === $index+1 ? 'active' : ''}}"
+                    ng-click="showPage($index+1)">
+                    <a>{{$index+1}}</a>
+                </li>
+
+                <li ng-show="currentPage < totalPages"
+                    ng-click="showNextPage()">
+                    <a>Next &raquo;</a>
+                </li>
+            </ul>
+        </div>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/restTest-service.js"></script>
+        <script src="js/restTest-controller.js"></script>
+    </body>
+</html>

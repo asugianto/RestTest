@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: #EFEDE8;
+}
+
+.restTestHeader {
+    width:100%;
+
+    .top {
+        height:50px;
+        background-color: #525659;
+    }
+
+    .dataTitle {
+        height:80px;
+        background-color: #098B8C;
+        color: white;
+        font-size:18px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.restTestBody {
+    height:100%;
+    width:100%;
+
+    .restTestCategory {
+        width: 95%;
+        margin: 50px auto;
+        text-align: center;
+        font-size:18px;
+    }
+    .restTestTable {
+        width:95%;
+        margin:50px auto;
+        margin-bottom: -0px;
+        background-color: white;
+
+        .header, .footer {
+            color: #098B8C;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .content {
+            font-size:16px;
+            background-color: #FAF9F7;
+            border:1px #DDDDDD solid;
+
+            margin-top: -1px !important;
+        }
+
+        .content:nth-child(even) {
+            color: #9E9FA2;
+        }
+
+        .content:nth-child(odd) {
+            color: #098B8C;
+        }
+
+
+
+        .row {
+            height: 65px;
+
+            margin:0 auto;
+            display:flex;
+            align-items: center;
+        }
+    }
+}
+
+.restTestFooter {
+    font-size: 15px;
+    text-align: center;
+
+    width: 95%;
+    margin: 0 auto;
+
+    .pagination li:hover {
+        cursor: pointer;
+    }
+}
+
+// Bootstrap style override
+.pagination {
+    >li>a {
+        color: #098B8C;
+    }
+
+    >.active>a, >.active>a:hover {
+        background-color: #098B8C;
+    }
+}
+
+.bold {
+    font-weight: bold;
+}

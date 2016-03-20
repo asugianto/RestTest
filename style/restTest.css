@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  height: 100%;
+  background-color: #EFEDE8;
+}
+.restTestHeader {
+  width: 100%;
+}
+.restTestHeader .top {
+  height: 50px;
+  background-color: #525659;
+}
+.restTestHeader .dataTitle {
+  height: 80px;
+  background-color: #098B8C;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restTestBody {
+  height: 100%;
+  width: 100%;
+}
+.restTestBody .restTestCategory {
+  width: 95%;
+  margin: 50px auto;
+  text-align: center;
+  font-size: 18px;
+}
+.restTestBody .restTestTable {
+  width: 95%;
+  margin: 50px auto;
+  margin-bottom: 0px;
+  background-color: white;
+}
+.restTestBody .restTestTable .header,
+.restTestBody .restTestTable .footer {
+  color: #098B8C;
+  font-size: 18px;
+  font-weight: bold;
+}
+.restTestBody .restTestTable .content {
+  font-size: 16px;
+  background-color: #FAF9F7;
+  border: 1px #DDDDDD solid;
+  margin-top: -1px !important;
+}
+.restTestBody .restTestTable .content:nth-child(even) {
+  color: #9E9FA2;
+}
+.restTestBody .restTestTable .content:nth-child(odd) {
+  color: #098B8C;
+}
+.restTestBody .restTestTable .row {
+  height: 65px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.restTestFooter {
+  font-size: 15px;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+}
+.restTestFooter .pagination li:hover {
+  cursor: pointer;
+}
+.pagination > li > a {
+  color: #098B8C;
+}
+.pagination > .active > a,
+.pagination > .active > a:hover {
+  background-color: #098B8C;
+}
+.bold {
+  font-weight: bold;
+}
